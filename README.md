@@ -5,7 +5,10 @@ PHPMatrix
 
 PHP Class for handling Matrices
 
-[![Build Status](https://travis-ci.org/MarkBaker/PHPMatrix.png?branch=2.0)](http://travis-ci.org/MarkBaker/PHPMatrix)
+[![Build Status](https://github.com/MarkBaker/PHPMatrixFunctions/workflows/main/badge.svg)](https://github.com/MarkBaker/PHPMatrixFunctions/actions)
+[![Total Downloads](https://img.shields.io/packagist/dt/markbaker/matrix-functions)](https://packagist.org/packages/markbaker/matrix-functions)
+[![Latest Stable Version](https://img.shields.io/github/v/release/MarkBaker/PHPMatrixFunctions)](https://packagist.org/packages/markbaker/matrix-functions)
+[![License](https://img.shields.io/github/license/MarkBaker/PHPMatrixFunctions)](https://packagist.org/packages/markbaker/matrix-functions)
 
 [![Matrix Transform](https://imgs.xkcd.com/comics/matrix_transform.png)](https://xkcd.com/184/)
 
@@ -59,6 +62,14 @@ and classes for
      - EigenVectors
 
 ---
+
+# Installation
+
+```shell
+composer require markbaker/matrix-functions:^1.0
+```
+
+(Requires Composer version 2)
 
 # Usage
 
@@ -120,6 +131,22 @@ $matrix2 = new Matrix\Matrix([
 
 var_dump(Matrix\multiply($matrix1, $matrix2)->toArray());
 ```
+
+or statically:
+```php
+$matrix1 = new Matrix\Matrix([
+    [2, 7, 6],
+    [9, 5, 1],
+    [4, 3, 8],
+]);
+$matrix2 = new Matrix\Matrix([
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+]);
+
+var_dump(Matrix\Operations::multiply($matrix1, $matrix2)->toArray());
+```
 You can pass in the arguments as Matrix objects, or as arrays.
 
 If you want to perform the same operation against multiple values (e.g. to add three or more matrices), then you can pass multiple arguments to any of the operations.
@@ -174,7 +201,7 @@ $grid = [
 $matrix = new Matrix\Matrix($grid);
 echo Matrix\Functions::trace($matrix);
 ```
-Used this way, methods must be called statically, and the argument must be the Matrix object, and cannot be an array.
+Used this way, methods must be called statically, and the argument must be the Matrix object or an array.
 
 ## Decomposition
 
